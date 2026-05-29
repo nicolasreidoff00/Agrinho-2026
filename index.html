@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinho 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Configurações Globais e Paleta de Cores */
+        :root {
+            --verde-escuro: #1b4332;
+            --verde-folha: #2d6a4f;
+            --verde-claro: #52b788;
+            --amarelo-ouro: #ffb703;
+            --amarelo-palha: #f4e285;
+            --branco-sujeira: #f8f9fa;
+            --texto-escuro: #212529;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--branco-sujeira);
+            color: var(--texto-escuro);
+            overflow-x: hidden;
+        }
+
+        /* Cabeçalho (Header) */
+        header {
+            background: linear-gradient(135deg, var(--verde-escuro), var(--verde-folha));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 5px solid var(--amarelo-ouro);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--amarelo-palha);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* Detalhes de Plantas no Header (SVG de Folhas) */
+        .folha-decorativa {
+            position: absolute;
+            bottom: -10px;
+            right: 10%;
+            font-size: 4rem;
+            color: var(--verde-claro);
+            opacity: 0.3;
+            animation: balanco 3s ease-in-out infinite alternate;
+        }
+
+        /* Seção Principal */
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Nova Seção: Manifesto Agro Forte e Sustentável */
+        .manifesto-banner {
+            background: linear-gradient(135deg, rgba(27, 67, 50, 0.95), rgba(45, 106, 79, 0.9)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1200') no-repeat center/cover;
+            color: white;
+            padding: 3.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border: 2px solid var(--verde-claro);
+        }
+
+        .manifesto-banner h2 {
+            font-size: 2.5rem;
+            color: var(--amarelo-ouro);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .manifesto-banner p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .manifesto-banner strong {
+            color: var(--amarelo-palha);
+            font-weight: 700;
+        }
+
+        .manifesto-icones {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--verde-claro);
+        }
+
+        /* Cards do Agro */
+        .grid-agro {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--verde-claro);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--amarelo-ouro);
+        }
+
+        .card-banner {
+            background: linear-gradient(to bottom right, var(--verde-folha), var(--amarelo-palha));
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-body h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 0.7rem;
+            font-size: 1.4rem;
+        }
+
+        .card-body p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Seção Sobre / Destaque */
+        .sobre-projeto {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            border-left: 8px solid var(--verde-escuro);
+        }
+
+        .sobre-texto h2 {
+            color: var(--verde-escuro);
+            margin-bottom: 1rem;
+        }
+
+        .sobre-icone {
+            font-size: 5rem;
+            color: var(--amarelo-ouro);
+        }
+
+        /* Rodapé (Footer) */
+        footer {
+            background-color: var(--verde-escuro);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 5rem;
+            border-top: 4px solid var(--amarelo-ouro);
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Animação Simples */
+        @keyframes balanco {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(10deg); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .manifesto-banner h2 { font-size: 1.8rem; }
+            .manifesto-banner p { font-size: 1.1rem; }
+            .sobre-projeto { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Agrinho 2026</h1>
+        <p>Inovação, Sustentabilidade e o Futuro do Campo</p>
+        <div class="folha-decorativa">
+            <i class="fa-solid fa-seedling"></i>
+        </div>
+    </header>
+
+    <main>
+        <section class="manifesto-banner">
+            <h2>Agro Forte e Sustentável</h2>
+            <p>
+                Acreditamos na força da nossa terra e no potencial de quem nela trabalha. Ser um <strong>Agro Forte</strong> significa produzir com eficiência, alimentar o mundo e impulsionar a economia. Ser <strong>Sustentável</strong> significa proteger os recursos naturais, respeitar a biodiversidade e garantir que as futuras gerações também encontrem um solo fértil e próspero. A tecnologia e a natureza caminham juntas para colher o amanhã.
+            </p>
+            <div class="manifesto-icones">
+                <i class="fa-solid fa-earth-americas"></i>
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <i class="fa-solid fa-sun"></i>
+            </div>
+        </section>
+
+        <section class="sobre-projeto">
+            <div class="sobre-icone">
+                <i class="fa-solid fa-tractor"></i>
+            </div>
+            <div class="sobre-texto">
+                <h2>Tecnologia no Campo</h2>
+                <p>O projeto Agrinho 2026 une a tradição da agricultura com a modernidade das ferramentas digitais. Nosso foco é cultivar soluções inteligentes para o manejo sustentável, otimização de colheitas e preservação ambiental.</p>
+            </div>
+        </section>
+
+        <section class="grid-agro">
+            
+            <div class="card">
+                <div class="card-banner">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <div class="card-body">
+                    <h3>Cultivo Inteligente</h3>
+                    <p>Monitoramento em tempo real do crescimento e da saúde das plantas, garantindo a máxima eficiência com o menor impacto ambiental.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-banner" style="background: linear-gradient(to bottom right, var(--verde-escuro), var(--amarelo-ouro));">
+                    <i class="fa-solid fa-wheat-awn"></i>
+                </div>
+                <div class="card-body">
+                    <h3>Nutrição do Solo</h3>
+                    <p>Análise precisa de nutrientes para preparar a terra para safras douradas e colheitas abundantes ano após ano.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-banner">
+                    <i class="fa-solid fa-cloud-sun-rain"></i>
+                </div>
+                <div class="card-body">
+                    <h3>Previsão Climática</h3>
+                    <p>Integração de dados meteorológicos para prever chuvas e períodos de sol, auxiliando o produtor no momento exato do plantio.</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Agrinho - Repositório GitHub Oficial. Desenvolvido com foco no Futuro Agro.</p>
+    </footer>
+
+</body>
+</html>
